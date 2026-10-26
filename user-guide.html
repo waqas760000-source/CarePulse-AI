@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Guide & Operations Manual — CarePulse AI™</title>
+  <meta name="description" content="Comprehensive clinical user manual, role-based workflows, interactive troubleshooting assistant, FAQ, and HL7 FHIR API integration reference for CarePulse AI.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e5ff'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
+</head>
+<body>
+
+  <!-- ================= Navigation ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide nav-inner">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="logo-pulse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text">CarePulse <span>AI</span></div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About You</a></li>
+          <li><a href="prototype.html" class="nav-link" id="navPrototype">Application Prototype</a></li>
+          <li><a href="marketing.html" class="nav-link" id="navMarketing">Marketing</a></li>
+          <li><a href="user-guide.html" class="nav-link active" id="navUserGuide">User Guide</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="emergency-pill">
+          <span class="pulse-dot"></span>
+          <span>MANUAL v3.8 ONLINE</span>
+        </div>
+        <a href="prototype.html" class="btn btn-primary btn-sm">Launch Prototype</a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Guide Hero ================= -->
+  <section class="hero-section" style="padding-bottom: 30px;">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Clinical Standard Operating Procedures (SOP)
+      </div>
+      <h1 class="hero-title" style="font-size: 2.8rem; max-width: 900px;">
+        CarePulse AI™ <span class="text-gradient">Comprehensive User Guide & Manual</span>
+      </h1>
+      <p class="hero-description" style="max-width: 800px;">
+        A complete operational guide for emergency medicine personnel, hospital bed managers, clinical informatics directors, and IT integration engineers.
+      </p>
+
+      <div class="guide-nav" id="roleTabs">
+        <button class="guide-nav-btn active" onclick="switchGuideRole('triageNurse', this)">👩‍⚕️ Triage Nurse Workflow</button>
+        <button class="guide-nav-btn" onclick="switchGuideRole('physician', this)">🩺 Attending Physician Guide</button>
+        <button class="guide-nav-btn" onclick="switchGuideRole('chargeNurse', this)">📊 ED Bed Coordinator</button>
+        <button class="guide-nav-btn" onclick="switchGuideRole('admin', this)">⚙️ IT & FHIR Architecture</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Role-Specific Workflow Instructions ================= -->
+  <section class="section-padding" style="padding-top: 10px;">
+    <div class="container">
+      <!-- Role 1: Triage Nurse -->
+      <div class="role-guide-panel active" id="guide_triageNurse">
+        <div class="card" style="padding: 40px; margin-bottom: 32px; border-left: 4px solid var(--accent-cyan);">
+          <div style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">
+            ROLE 01 • TRIAGE NURSE PROTOCOL
+          </div>
+          <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+            Rapid Intake, Acuity Verification & Primary Allocation
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">
+            The primary goal of the Triage Nurse is to capture vital parameters within 60 seconds of arrival, verify the AI-computed ESI score, and prevent waiting-room deterioration.
+          </p>
+
+          <div class="workflow-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 28px;">
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+              <strong style="color: var(--accent-cyan); display: block; margin-bottom: 6px;">Step 1: Ingest & Scan</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Tap bedside monitor barcode or swipe patient health card. Vitals auto-populate into CarePulse AI tablet.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+              <strong style="color: var(--accent-cyan); display: block; margin-bottom: 6px;">Step 2: Acuity Review</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">CarePulse AI outputs ESI Level 1-5, Shock Index, and high-risk flags (Sepsis, STEMI, Occult Stroke).</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+              <strong style="color: var(--accent-cyan); display: block; margin-bottom: 6px;">Step 3: Confirm & Dispatch</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Accept suggested bay or override with one touch. Notification sounds immediately at assigned bay.</p>
+            </div>
+          </div>
+
+          <div style="background: rgba(0, 242, 169, 0.08); border: 1px solid rgba(0, 242, 169, 0.25); border-radius: var(--radius-sm); padding: 16px 20px;">
+            <strong style="color: var(--accent-teal); font-size: 0.9rem;">💡 Clinical Pro-Tip for Triage Nurses:</strong>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+              If a patient's Heart Rate divided by Systolic BP exceeds <strong>0.9 (Shock Index Alert)</strong>, the system will highlight the patient card in flashing amber even if their mental status appears normal. Never demote a high Shock Index without attending physician concurrence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 2: Attending Physician -->
+      <div class="role-guide-panel" id="guide_physician" style="display: none;">
+        <div class="card" style="padding: 40px; margin-bottom: 32px; border-left: 4px solid var(--accent-teal);">
+          <div style="font-size: 0.85rem; color: var(--accent-teal); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">
+            ROLE 02 • EMERGENCY ATTENDING PHYSICIAN
+          </div>
+          <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+            Bedside Evaluation, Ambient SBAR & Order Execution
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">
+            CarePulse AI functions as your ambient clinical scribe and differential diagnostic co-pilot, letting you focus on the patient instead of keyboard typing.
+          </p>
+
+          <div class="workflow-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 28px;">
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+              <strong style="color: var(--accent-teal); display: block; margin-bottom: 6px;">1. Differential Audit</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Review the top 3 AI differential probabilities and recommended diagnostic bundle (e.g. Troponin, CT, Ultrasound).</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+              <strong style="color: var(--accent-teal); display: block; margin-bottom: 6px;">2. Ambient Dictation</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Speak naturally with the patient. Ambient AI acoustic filters extract chief complaint, history, and physical findings.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+              <strong style="color: var(--accent-teal); display: block; margin-bottom: 6px;">3. Sign SBAR Note</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Review auto-generated SBAR note on tablet, tap "Authorize", and commit note directly to Epic/Cerner chart.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 3: Charge Nurse -->
+      <div class="role-guide-panel" id="guide_chargeNurse" style="display: none;">
+        <div class="card" style="padding: 40px; margin-bottom: 32px; border-left: 4px solid #ff7b00;">
+          <div style="font-size: 0.85rem; color: #ff7b00; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">
+            ROLE 03 • ED CHARGE NURSE & BED COORDINATOR
+          </div>
+          <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+            Capacity Balancing, Turnaround & Surge Management
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">
+            The central dashboard provides total operational visibility across all ED beds, waiting room queues, and inpatient hospital handoffs.
+          </p>
+
+          <ul class="card-list" style="font-size: 0.92rem; line-height: 1.8;">
+            <li><strong>Discharge Lounge Routing:</strong> Flag stable patients who have orders completed to the discharge lounge, freeing acute bays 45 minutes faster.</li>
+            <li><strong>Fast Track Flexibility:</strong> When ESI-4/5 volume surges past 20 patients, toggle "FastTrack Surge Expansion" to repurpose consultation rooms.</li>
+            <li><strong>Ambulance Diversion Threshold:</strong> Automated alerts notify regional dispatchers before hospital reaches 95% capacity, preventing ambulance pile-ups.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Role 4: IT & FHIR Architecture -->
+      <div class="role-guide-panel" id="guide_admin" style="display: none;">
+        <div class="card" style="padding: 40px; margin-bottom: 32px; border-left: 4px solid #a855f7;">
+          <div style="font-size: 0.85rem; color: #a855f7; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">
+            ROLE 04 • IT ARCHITECT & CLINICAL INFORMATICS
+          </div>
+          <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+            HL7 FHIR v4 Interoperability & Security Enclave
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">
+            CarePulse AI connects via standard SMART on FHIR OAuth 2.0 gateways with zero disruption to legacy EHR databases.
+          </p>
+
+          <div class="code-block" style="margin-bottom: 20px;">
+            <span class="code-badge">HL7 FHIR REST ENDPOINT</span>
+POST https://api.carepulse.health/v4/Encounter/$triage-evaluate
+Content-Type: application/fhir+json
+Authorization: Bearer [JWT_EHR_TOKEN]
+
+{
+  "resourceType": "Encounter",
+  "status": "in-progress",
+  "class": { "code": "EMER", "display": "Emergency" },
+  "subject": { "reference": "Patient/P-849204" },
+  "serviceProvider": { "reference": "Organization/Metro-ED" },
+  "priority": {
+    "coding": [{
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "EM",
+      "display": "Emergency Severity Index 2"
+    }]
+  }
+}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Interactive Troubleshooting Assistant ================= -->
+  <section class="section-padding" style="background: rgba(13, 20, 36, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Instant Diagnostic Support</span>
+        <h2 class="section-title">Interactive Clinical Troubleshooting Assistant</h2>
+        <p class="section-subtitle">
+          Encountering an operational or hardware issue? Select your symptom below for instant clinical and technical resolution instructions.
+        </p>
+      </div>
+
+      <div class="card" style="max-width: 900px; margin: 0 auto; padding: 36px;">
+        <div class="form-group">
+          <label class="form-label" style="font-size: 1rem;">Select an Operational or System Scenario:</label>
+          <select class="form-select" id="troubleshootSelect" onchange="resolveTroubleshooting(this.value)">
+            <option value="disagree">Clinical Disagreement: Nurse assessment differs from AI Acuity score</option>
+            <option value="ecg_sync">Vital Monitor: Bedside Philips/Mindray ECG telemetry not updating</option>
+            <option value="ehr_latency">EHR Integration: Epic/Cerner synchronization latency > 5 seconds</option>
+            <option value="audio_ambient">Ambient Dictation: Background emergency room noise interfering with voice SBAR</option>
+            <option value="surge_alert">Hospital Saturation: ED Capacity reached 100% and diversion warning active</option>
+          </select>
+        </div>
+
+        <div id="troubleshootOutput" style="background: #080d19; border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 24px; margin-top: 20px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 10px;">
+            Resolution: Nurse Clinical Override Protocol
+          </h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Governing Principle:</strong> Clinician judgment always supercedes AI suggestion. Tap the "Acuity Override" pencil icon next to the ESI score, select the revised score (e.g. adjust from ESI-3 to ESI-2), and choose the clinical justification from the dropdown (e.g., "Severe diaphoresis / clinical intuition").
+          </p>
+          <div style="font-size: 0.8rem; color: var(--accent-teal);">
+            ✔ The system will immediately re-queue the patient and log the override for continuous machine learning reinforcement.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Comprehensive FAQ ================= -->
+  <section class="section-padding">
+    <div class="container" style="max-width: 860px;">
+      <div class="section-header">
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2 class="section-title">Clinical & Operational FAQ</h2>
+        <p class="section-subtitle">
+          Common questions regarding accuracy, legal liability, implementation, and hospital workflow compatibility.
+        </p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item open">
+          <button class="faq-question">
+            <span>What happens if the AI suggests an incorrect triage level?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            CarePulse AI is strictly an assistive Clinical Decision Support System (SaMD Class II). The registered nurse or attending physician maintains final sign-off authority. If a score is overridden, the override reason is logged in an encrypted audit trail that satisfies Joint Commission and CMS compliance.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does CarePulse AI require replacing our existing Epic or Cerner EHR?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            No! CarePulse AI was specifically engineered as an interoperable overlay. It integrates via HL7 FHIR v4.0.1 APIs and SMART on FHIR tokens. It reads vitals from your existing hospital telemetry monitors and writes approved notes back to your native EHR seamlessly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the ambient voice system handle noisy emergency rooms?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Our ambient acoustic pipeline uses directional dual-beamforming microphones and medical frequency isolation. It filters out sirens, gurney wheels, and adjacent intercom chatter while locking onto the physician-patient vocal spectrum.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How is Protected Health Information (PHI) secured?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            CarePulse AI adheres to strict zero-knowledge encryption standards. All audio streams are processed locally in an ephemeral cryptographic enclave and discarded immediately after SBAR synthesis. All stored data is encrypted using AES-256 with granular Role-Based Access Controls (RBAC).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How long does hospital-wide deployment and staff training take?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Because CarePulse AI follows standard ESI guidelines familiar to all emergency clinicians, nursing staff master the interface within a single 45-minute interactive onboarding session. Technical FHIR gateway connection typically takes 2 to 4 weeks.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Global Footer ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-pulse-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div class="logo-text">CarePulse <span>AI</span></div>
+        </a>
+        <p>Pioneering precision clinical triage, predictive capacity management, and clinician burnout mitigation for modern healthcare enterprises.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About You</a></li>
+          <li><a href="prototype.html">App Prototype</a></li>
+          <li><a href="marketing.html">Marketing & ROI</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Prototype Modules</h4>
+        <ul class="footer-links">
+          <li><a href="prototype.html#tab-triage">AI Triage Calculator</a></li>
+          <li><a href="prototype.html#tab-beds">ED Bed Tracking Grid</a></li>
+          <li><a href="prototype.html#tab-ambient">Ambient SBAR Voice</a></li>
+          <li><a href="prototype.html#tab-surge">Surge Capacity Model</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Developer & Architect</h4>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+          Designed & Developed by <strong>Waqas Ali</strong><br>
+          Lead Biomedical Informatics & Systems Architect
+        </p>
+        <a href="prototype.html" class="btn btn-primary btn-sm">Launch Working Prototype</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CarePulse AI™ Systems. All rights reserved. Clinical prototype demonstration.</div>
+      <div>Designed for modern societal healthcare optimization.</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function switchGuideRole(roleId, btn) {
+      document.querySelectorAll('.guide-nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.role-guide-panel').forEach(panel => {
+        panel.style.display = 'none';
+      });
+
+      const activePanel = document.getElementById('guide_' + roleId);
+      if (activePanel) {
+        activePanel.style.display = 'block';
+      }
+    }
+
+    function resolveTroubleshooting(issueKey) {
+      const output = document.getElementById('troubleshootOutput');
+      const solutions = {
+        disagree: `
+          <h4 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 10px;">Resolution: Nurse Clinical Override Protocol</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Governing Principle:</strong> Clinician judgment always supercedes AI suggestion. Tap the "Acuity Override" pencil icon next to the ESI score, select the revised score (e.g. adjust from ESI-3 to ESI-2), and choose the clinical justification from the dropdown (e.g., "Severe diaphoresis / clinical intuition").
+          </p>
+          <div style="font-size: 0.8rem; color: var(--accent-teal);">
+            ✔ The system will immediately re-queue the patient and log the override for continuous machine learning reinforcement.
+          </div>
+        `,
+        ecg_sync: `
+          <h4 style="color: #ff7b00; font-size: 1.1rem; margin-bottom: 10px;">Resolution: Bedside Telemetry Monitor Reconnect</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Troubleshooting Steps:</strong> 1. Verify monitor is connected to hospital VLAN "MED-NET-IOT". 2. Re-scan the bedside bed QR code to re-pair Bluetooth LE telemetry stream. 3. If vitals remain offline, manually input Heart Rate and BP on the tablet to prevent triage interruption.
+          </p>
+          <div style="font-size: 0.8rem; color: var(--accent-teal);">
+            ✔ System automatically switches to graceful fallback manual entry mode without losing active patient session.
+          </div>
+        `,
+        ehr_latency: `
+          <h4 style="color: #a855f7; font-size: 1.1rem; margin-bottom: 10px;">Resolution: FHIR Gateway Offline Cache</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Protocol:</strong> CarePulse AI contains an indexed offline database (IndexedDB on tablet). If hospital EHR latency exceeds 2,000ms, data is locally encrypted and queued for batch ingestion once network throughput recovers.
+          </p>
+          <div style="font-size: 0.8rem; color: var(--accent-teal);">
+            ✔ No clinical data is lost during network blips or hospital server maintenance.
+          </div>
+        `,
+        audio_ambient: `
+          <h4 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 10px;">Resolution: Microphone Array Beamforming Calibration</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Action:</strong> 1. Position tablet microphone within 1.5 meters of physician and patient. 2. In audio settings, toggle "Enhanced Intercom Noise Suppression: ON". 3. In extreme ambient noise (e.g., helicopter bay transfer), use clinician lapel microphone or tap standard dictation.
+          </p>
+          <div style="font-size: 0.8rem; color: var(--accent-teal);">
+            ✔ Ambient voice accuracy remains > 98% with beamforming enabled.
+          </div>
+        `,
+        surge_alert: `
+          <h4 style="color: var(--esi-1); font-size: 1.1rem; margin-bottom: 10px;">Resolution: Code Surge & Mutual Aid Activation</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            <strong>Emergency Capacity Protocol:</strong> 1. Charge nurse taps "Authorize Code Surge". 2. ESI-4 and ESI-5 patients are routed to ambulatory FastTrack pods. 3. Inpatient floor managers are pinged with 3 priority discharge candidates. 4. Regional EMS dispatch is advised of 15-minute divert pause.
+          </p>
+          <div style="font-size: 0.8rem; color: var(--accent-teal);">
+            ✔ Prevents total emergency department gridlock and maintains resuscitation bay readiness.
+          </div>
+        `
+      };
+
+      output.innerHTML = solutions[issueKey] || solutions['disagree'];
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/three-scene.js"></script>
+</body>
+</html>

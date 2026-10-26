@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePulse AI™ — Intelligent Clinical Triage & Emergency Flow Orchestration</title>
+  <meta name="description" content="Next-generation AI clinical triage, emergency department flow orchestration, and predictive bed management platform solving healthcare overcrowding and clinician burnout.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e5ff'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
+</head>
+<body>
+
+  <!-- ================= Navigation ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide nav-inner">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="logo-pulse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text">CarePulse <span>AI</span></div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link active" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About You</a></li>
+          <li><a href="prototype.html" class="nav-link" id="navPrototype">Application Prototype</a></li>
+          <li><a href="marketing.html" class="nav-link" id="navMarketing">Marketing</a></li>
+          <li><a href="user-guide.html" class="nav-link" id="navUserGuide">User Guide</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="emergency-pill" title="System Operational & Live Telemetry Active">
+          <span class="pulse-dot"></span>
+          <span>SYSTEM ACTIVE</span>
+        </div>
+        <a href="prototype.html" class="btn btn-primary btn-sm" id="navCta">Launch Prototype</a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero Section ================= -->
+  <section class="hero-section" id="heroSection">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Clinical AI Triage & Flow Platform
+        </div>
+        <h1 class="hero-title">
+          Eliminating Emergency Overcrowding Through <span class="text-gradient">Predictive Clinical AI</span>
+        </h1>
+        <p class="hero-description">
+          Modern emergency departments are at breaking point. CarePulse AI orchestrates instant algorithmic triage, predictive bed turnaround, and ambient clinical documentation—cutting wait times by 47% and safeguarding critical lives.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="prototype.html" class="btn btn-primary btn-lg" id="heroLaunchBtn">
+            <span>⚡ Test Interactive Prototype</span>
+          </a>
+          <a href="marketing.html#roiCalculator" class="btn btn-secondary btn-lg" id="heroRoiBtn">
+            <span>📊 Calculate Hospital ROI</span>
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">-47%</span>
+            <span class="hero-stat-label">Door-to-Doctor Wait</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">99.4%</span>
+            <span class="hero-stat-label">ESI Acuity Accuracy</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">$3.2M</span>
+            <span class="hero-stat-label">Avg. Hospital Savings</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">850k+</span>
+            <span class="hero-stat-label">Triaged Patients</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="three-stage-wrapper" style="margin-bottom: 24px;">
+          <div class="three-stage-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot"></span>
+              <span style="font-size: 0.82rem; font-weight: 700; color: #fff; text-transform: uppercase;">3D Clinical Hologram</span>
+            </div>
+            <div class="three-mode-controls">
+              <button class="three-mode-btn active" data-mode="cardio">🩺 Cardio Core</button>
+              <button class="three-mode-btn" data-mode="neural">🧠 Neural Triage</button>
+              <button class="three-mode-btn" data-mode="dna">🧬 Biometrics</button>
+            </div>
+          </div>
+          <div id="threeCanvasContainer"></div>
+          <div class="three-overlay-indicator">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Interactive 3D Simulation • Drag to Rotate</span>
+          </div>
+          <div class="three-telemetry-badge">
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">HEARTBEAT TELEMETRY</div>
+            <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-teal); font-family: var(--font-mono);">75 BPM • NORMAL</div>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <img src="assets/images/hero_banner.jpg" alt="CarePulse AI Clinical Operations Command Center" width="800" height="450">
+          <div class="hero-floating-pill pill-top-right">
+            <span class="pulse-dot"></span>
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">ACTIVE ED CENSUS</div>
+              <div style="font-size: 0.9rem; font-weight: 700; color: #fff;">48 Beds • 0 Diversion</div>
+            </div>
+          </div>
+          <div class="hero-floating-pill pill-bottom-left">
+            <span style="font-size: 1.4rem;">🩺</span>
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">ALGORITHM AUDIT</div>
+              <div style="font-size: 0.88rem; font-weight: 700; color: var(--accent-teal);">100% Clinician-in-the-Loop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Real-Time Emergency Ticker ================= -->
+  <div class="ticker-bar" id="liveTicker">
+    <div class="ticker-content">
+      <div class="ticker-item">
+        <span class="ticker-tag">LIVE FEED</span>
+        <span class="ticker-dynamic-event">CarePulse AI Triage Engine v3.8 Active — 1,420 Active Patient Monitoring Streams across 14 Regional Nodes</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-tag alert">TRIAGE ALERT</span>
+        <span>Inbound Trauma 01 ETA 4m — Chest Tube & Resus Bay 1 Reserved Automatically</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-tag">SURGE OPTIMIZER</span>
+        <span>Predicted 18:00 Acute Care Influx: Fast Track clinic extended by 2 additional bays</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-tag">COMPLIANCE</span>
+        <span>HL7 FHIR v4.0.1 Synced • 256-bit AES HIPAA Zero-Knowledge Enclave Active</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Societal Need & Problem Statement ================= -->
+  <section class="section-padding" id="societalProblem">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">The Societal Imperative</span>
+        <h2 class="section-title">Why Today's Society Urgently Needs CarePulse AI</h2>
+        <p class="section-subtitle">
+          Overcrowded emergency departments cause avoidable diagnostic delays, patient fatalities, and unprecedented healthcare worker burnout worldwide.
+        </p>
+      </div>
+
+      <div class="problem-solution-wrap">
+        <div class="problem-box">
+          <span class="status-badge danger">Current Crisis: Legacy Healthcare Workflow</span>
+          <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 16px;">The Dangerous Realities of Manual Triage</h3>
+          
+          <div class="comparison-item">
+            <div style="color: var(--esi-1); font-size: 1.3rem;">⚠️</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; margin-bottom: 4px;">Delayed Life-Threat Recognition</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Patients with atypical STEMI or occult sepsis wait hours in reception while subtle vitals deteriorate unseen.</p>
+            </div>
+          </div>
+
+          <div class="comparison-item">
+            <div style="color: var(--esi-1); font-size: 1.3rem;">⏳</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; margin-bottom: 4px;">Dangerous ED Boarding & Bed Stagnation</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Average 6.2 hours delay between admission decision and inpatient bed assignment due to manual phone calls and spreadsheet tracking.</p>
+            </div>
+          </div>
+
+          <div class="comparison-item">
+            <div style="color: var(--esi-1); font-size: 1.3rem;">📉</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; margin-bottom: 4px;">Severe Staff Burnout & LWBS Losses</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">4.2% of patients leave without being seen (LWBS), losing hospitals millions and increasing community morbidity rates.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-box">
+          <span class="status-badge success">CarePulse AI™ Orchestrated Workflow</span>
+          <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 16px;">Next-Gen Precision Care Delivery</h3>
+
+          <div class="comparison-item">
+            <div style="color: var(--accent-teal); font-size: 1.3rem;">⚡</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; margin-bottom: 4px;">Instant Multi-Parameter AI Triage</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Analyzes 18+ biomarkers and chief complaints within 3 seconds, correctly flagging high-risk ESI-1 and ESI-2 emergencies.</p>
+            </div>
+          </div>
+
+          <div class="comparison-item">
+            <div style="color: var(--accent-teal); font-size: 1.3rem;">🏥</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; margin-bottom: 4px;">Predictive Bed Matching & Turnaround</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Dynamically assigns patients to optimal bays (Resus, Acute, Fast Track) and forecasts discharge times 4 hours in advance.</p>
+            </div>
+          </div>
+
+          <div class="comparison-item">
+            <div style="color: var(--accent-teal); font-size: 1.3rem;">🎙️</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; margin-bottom: 4px;">Ambient SBAR Clinical Documentation</strong>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Passive natural language processing captures doctor-patient dialogues into structured EHR notes, freeing 2.5 hours per shift.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Core Platform Capabilities ================= -->
+  <section class="section-padding" style="background: rgba(13, 20, 36, 0.4);" id="coreFeatures">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Technology Pillars</span>
+        <h2 class="section-title">Engineered for Clinical Velocity and Safety</h2>
+        <p class="section-subtitle">
+          Explore how CarePulse AI integrates seamlessly into existing hospital infrastructures to transform chaotic emergency departments into intelligent, synchronized care hubs.
+        </p>
+      </div>
+
+      <div class="cards-grid-3">
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <h3 class="card-title">Dynamic Acuity Scoring Engine</h3>
+          <p class="card-text">
+            Compliant with Emergency Severity Index (ESI) and Manchester Triage protocols. Continuously computes real-time Shock Index, SIRS risk, and vital trend anomalies.
+          </p>
+          <ul class="card-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Sub-second risk stratification</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Differential diagnosis probability</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> STAT lab & ECG automated order sets</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="card-title">ED Bed Command & Surge Analytics</h3>
+          <p class="card-text">
+            Interactive ward floor plan displaying real-time bed occupancy, live telemetry alarms, nurse-patient ratios, and early predictive discharge recommendations.
+          </p>
+          <ul class="card-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Live bed telemetry status</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Ambulance diversion alert threshold</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Automatic Fast Track redirection</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+          </div>
+          <h3 class="card-title">Ambient SBAR Documentation</h3>
+          <p class="card-text">
+            Medical-grade ambient acoustic processing transcribes patient encounters and summarizes them into structured Situation, Background, Assessment, and Recommendation notes.
+          </p>
+          <ul class="card-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 98.9% medical lexicon fidelity</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Instant copy to Epic / Cerner EHRs</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Saves 2.5 hours of charting per nurse</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= How It Works ================= -->
+  <section class="section-padding" id="howItWorks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">End-to-End Orchestration</span>
+        <h2 class="section-title">The Four Steps to Zero Emergency Delay</h2>
+        <p class="section-subtitle">
+          How CarePulse AI transforms the emergency continuum from first contact to discharge.
+        </p>
+      </div>
+
+      <div class="workflow-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <h3 class="step-title">Intake & Sensor Feed</h3>
+          <p class="step-desc">
+            Patient arrives via ambulance or walk-in. Vitals, past medical history, and chief complaint are ingested through bedside monitors or triage tablets.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <h3 class="step-title">AI Acuity Stratification</h3>
+          <p class="step-desc">
+            The neural engine evaluates life threats, computes Shock Index, determines ESI score 1-5, and suggests targeted diagnostic lab orders.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <h3 class="step-title">Optimal Bed Assignment</h3>
+          <p class="step-desc">
+            CarePulse AI dynamically pairs the patient with the nearest appropriate bed bay (Resus, Trauma, Acute, FastTrack) balancing clinician load.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <h3 class="step-title">Ambient SBAR Charting</h3>
+          <p class="step-desc">
+            Physician bedside discussion is parsed into structured clinical documentation, synchronized instantly to the hospital's EHR via FHIR APIs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Prototype Teaser Banner ================= -->
+  <section class="section-padding">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, rgba(0, 229, 255, 0.12) 0%, rgba(37, 99, 235, 0.15) 100%); border: 1px solid rgba(0, 229, 255, 0.35); border-radius: var(--radius-xl); padding: 50px 40px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
+        <span class="status-badge" style="background: var(--accent-cyan-dim); color: var(--accent-cyan);">FULLY FUNCTIONAL INTERACTIVE SIMULATOR</span>
+        <h2 style="font-size: 2.2rem; font-weight: 800; margin: 16px 0;">Experience the CarePulse AI Prototype Live</h2>
+        <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto 30px; font-size: 1.05rem;">
+          Try preset clinical cases (STEMI, Sepsis, Pediatric Asthma, Ankle Sprain) or input your own vitals to test the algorithmic acuity engine, bed dashboard, and ambient note generator.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="prototype.html" class="btn btn-primary btn-lg">Launch Working Prototype →</a>
+          <a href="user-guide.html" class="btn btn-secondary btn-lg">Read User Manual</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Global Footer ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-pulse-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div class="logo-text">CarePulse <span>AI</span></div>
+        </a>
+        <p>Pioneering precision clinical triage, predictive capacity management, and clinician burnout mitigation for modern healthcare enterprises.</p>
+        <div style="display: flex; gap: 12px; margin-top: 16px;">
+          <span style="font-size: 0.75rem; background: var(--bg-card); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-glass);">HIPAA Compliant</span>
+          <span style="font-size: 0.75rem; background: var(--bg-card); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-glass);">HL7 FHIR v4</span>
+          <span style="font-size: 0.75rem; background: var(--bg-card); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-glass);">SaMD Class II</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About You</a></li>
+          <li><a href="prototype.html">App Prototype</a></li>
+          <li><a href="marketing.html">Marketing & ROI</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Prototype Modules</h4>
+        <ul class="footer-links">
+          <li><a href="prototype.html#triageModule">AI Triage Calculator</a></li>
+          <li><a href="prototype.html#bedsModule">ED Bed Tracking Grid</a></li>
+          <li><a href="prototype.html#ambientModule">Ambient SBAR Voice</a></li>
+          <li><a href="prototype.html#surgeModule">Surge Capacity Model</a></li>
+          <li><a href="marketing.html#pricingSection">Pricing Tiers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Developer & Architect</h4>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+          Designed & Developed by <strong>Waqas Ali</strong><br>
+          Lead Biomedical Informatics & Systems Architect
+        </p>
+        <a href="about.html" class="btn btn-secondary btn-sm">View Developer Profile →</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CarePulse AI™ Systems. All rights reserved. Clinical prototype demonstration.</div>
+      <div>Designed for modern societal healthcare optimization.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/three-scene.js"></script>
+</body>
+</html>

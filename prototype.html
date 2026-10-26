@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Prototype — CarePulse AI™ Working Clinical System</title>
+  <meta name="description" content="Explore the fully functional interactive prototype of CarePulse AI. Test real-time emergency triage, ED bed allocation, ambient clinical SBAR notes, and surge forecasting.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e5ff'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
+</head>
+<body>
+
+  <!-- ================= Navigation ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide nav-inner">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="logo-pulse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text">CarePulse <span>AI</span></div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About You</a></li>
+          <li><a href="prototype.html" class="nav-link active" id="navPrototype">Application Prototype</a></li>
+          <li><a href="marketing.html" class="nav-link" id="navMarketing">Marketing</a></li>
+          <li><a href="user-guide.html" class="nav-link" id="navUserGuide">User Guide</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="emergency-pill">
+          <span class="pulse-dot"></span>
+          <span>PROTOTYPE ENGINE LIVE</span>
+        </div>
+        <a href="#interactiveWorkspace" class="btn btn-primary btn-sm">Jump to Live Demo ↓</a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Prototype Header & System Information ================= -->
+  <section class="hero-section" style="padding-bottom: 30px;">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Technical Specifications & Live System Demo
+      </div>
+      <h1 class="hero-title" style="font-size: 2.8rem; max-width: 900px;">
+        Interactive Application Prototype: <span class="text-gradient">Clinical Flow & Triage Simulation</span>
+      </h1>
+      <p class="hero-description" style="max-width: 820px;">
+        CarePulse AI is a multi-modular clinical intelligence platform. Below you will find both the comprehensive technical design documentation and an interactive, client-side simulation engine demonstrating the four core algorithmic pipelines.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= Architectural & Informational Breakdown ================= -->
+  <section class="section-padding" style="padding-top: 10px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="cards-grid-3">
+        <div class="card">
+          <h3 style="font-size: 1.15rem; color: var(--accent-cyan); margin-bottom: 12px;">1. Clinical Acuity Engine</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Implements the standardized 5-tier Emergency Severity Index (ESI) algorithm combined with automated Shock Index calculations (HR / Systolic BP) and SIRS criteria to instantly detect occult instability.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; color: var(--accent-teal); margin-bottom: 12px;">2. Dynamic Ward Orchestration</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Continuously monitors bed status across Resuscitation bays, Trauma suites, Acute treatment zones, and ambulatory Fast-Track clinics, dynamically dispatching patients to minimize boarding.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; color: #ff7b00; margin-bottom: 12px;">3. Ambient NLP & FHIR EMR</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Transforms spoken bedside conversations into standardized clinical SBAR notes, eliminating hours of manual typing and generating FHIR Observation & Encounter JSON bundles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Working Interactive Prototype Workspace ================= -->
+  <section class="section-padding" id="interactiveWorkspace" style="background: rgba(10, 16, 29, 0.7); border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass);">
+    <div class="container-wide">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-tag">Hands-On Working Prototype</span>
+        <h2 class="section-title">CarePulse AI™ Clinical Command Center Simulator</h2>
+        <p class="section-subtitle">
+          Select a clinical preset or input real-time vitals below to evaluate the triage model, manage live hospital beds, synthesize ambient notes, or stress-test epidemic surge conditions.
+        </p>
+      </div>
+
+      <!-- Prototype Box -->
+      <div class="proto-workspace">
+        <!-- Top Toolbar & Module Tabs -->
+        <div class="proto-topbar">
+          <div class="proto-controls">
+            <span style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 700;">
+              SIMULATOR NODE: #ED-WEST-01
+            </span>
+          </div>
+
+          <div class="proto-tabs">
+            <button class="proto-tab-btn active" data-tab="tab-triage">1. AI Triage & CDSS</button>
+            <button class="proto-tab-btn" data-tab="tab-beds">2. ED Bed Command</button>
+            <button class="proto-tab-btn" data-tab="tab-ambient">3. Ambient SBAR Voice</button>
+            <button class="proto-tab-btn" data-tab="tab-surge">4. Surge Capacity Model</button>
+          </div>
+        </div>
+
+        <!-- ================= TAB 1: AI Triage & CDSS ================= -->
+        <div class="proto-tab-content active" id="tab-triage">
+          <div style="background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: var(--radius-md); padding: 14px 20px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <strong style="font-size: 0.95rem; color: #fff;">⚡ Rapid Testing Scenarios (Click to Load Presets):</strong>
+              <span style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 8px;">Simulate realistic high-stakes emergency department presentations</span>
+            </div>
+            <select class="form-select" id="presetSelect" style="width: auto; padding: 8px 16px;">
+              <option value="stemi">Case A: Acute Coronary Syndrome (STEMI / ESI-2)</option>
+              <option value="sepsis">Case B: Severe Sepsis Alert (UTI / ESI-2)</option>
+              <option value="asthma">Case C: Pediatric Severe Asthma (ESI-2/3)</option>
+              <option value="ankle">Case D: Lateral Ankle Sprain (Fast Track / ESI-4)</option>
+            </select>
+          </div>
+
+          <div class="proto-form-grid">
+            <!-- Form Input Column -->
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+                <span>📋</span> Patient Demographics & Presenting Complaint
+              </h3>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label class="form-label">Patient Age</label>
+                  <input type="number" class="form-input" id="patientAge" value="58">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Gender</label>
+                  <select class="form-select" id="patientGender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other / Non-binary</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Chief Complaint & Onset History</label>
+                <textarea class="form-textarea" id="chiefComplaint" rows="2">Crushing retrosternal chest pain radiating to left jaw and shoulder, sudden onset 45 min ago.</textarea>
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                  <label class="form-label" style="margin-bottom: 0;">Self-Reported Pain Score (1 - 10)</label>
+                  <span id="painValueDisplay" style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: bold;">9</span>
+                </div>
+                <input type="range" class="custom-range" id="painScore" min="0" max="10" value="9" oninput="document.getElementById('painValueDisplay').innerText = this.value">
+              </div>
+
+              <h4 style="font-size: 1rem; font-weight: 700; margin: 20px 0 12px; color: var(--text-primary);">
+                🩺 Objective Physiological Vitals
+              </h4>
+              <div class="vitals-grid">
+                <div class="vital-input-card">
+                  <label>Heart Rate (BPM)</label>
+                  <input type="number" id="vitalHR" value="104">
+                </div>
+                <div class="vital-input-card">
+                  <label>BP Systolic (mmHg)</label>
+                  <input type="number" id="vitalBPSys" value="165">
+                </div>
+                <div class="vital-input-card">
+                  <label>BP Diastolic (mmHg)</label>
+                  <input type="number" id="vitalBPDia" value="98">
+                </div>
+                <div class="vital-input-card">
+                  <label>SpO2 Pulse Ox (%)</label>
+                  <input type="number" id="vitalSpO2" value="92">
+                </div>
+                <div class="vital-input-card">
+                  <label>Resp Rate (/min)</label>
+                  <input type="number" id="vitalRR" value="24">
+                </div>
+                <div class="vital-input-card">
+                  <label>Body Temp (°C)</label>
+                  <input type="number" step="0.1" id="vitalTemp" value="37.1">
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <button class="btn btn-primary btn-lg" id="runTriageBtn" style="width: 100%;">
+                  ⚡ Execute AI Clinical Triage & Acuity Scoring
+                </button>
+              </div>
+            </div>
+
+            <!-- Decision Support Result Column -->
+            <div id="triageResultContainer">
+              <div class="acuity-result-card" style="border-top: 4px solid var(--esi-2);">
+                <span class="status-badge" style="background: rgba(0, 229, 255, 0.15); color: var(--accent-cyan);">
+                  AI CLINICAL DECISION SUPPORT VERDICT
+                </span>
+                <div class="acuity-badge-huge esi-2">
+                  ESI LEVEL 2
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">
+                  LEVEL 2: EMERGENT (HIGH RISK / SEVERE INSTABILITY)
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+                  Calculated Shock Index: <strong style="color: #fff; font-family: var(--font-mono);">0.63</strong> | 
+                  Oxygenation: <strong style="color: #fff; font-family: var(--font-mono);">92%</strong> | 
+                  Target Bedside Wait: <strong style="color: var(--accent-teal); font-family: var(--font-mono);">&lt; 10 Minutes</strong>
+                </p>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 18px; text-align: left; margin-bottom: 20px;">
+                  <h4 style="font-size: 0.88rem; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;">
+                    AI Suggested Differential Diagnoses:
+                  </h4>
+                  <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                    <li style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                      <span>• Acute Coronary Syndrome / STEMI</span>
+                      <span style="font-family: var(--font-mono); color: var(--accent-teal); font-weight: 700;">89% confidence</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                      <span>• Sepsis with Hemodynamic Hypoperfusion</span>
+                      <span style="font-family: var(--font-mono); color: var(--accent-teal); font-weight: 700;">12% confidence</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                      <span>• Acute Aortic Dissection / PE</span>
+                      <span style="font-family: var(--font-mono); color: var(--accent-teal); font-weight: 700;">34% confidence</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 18px; text-align: left; margin-bottom: 24px;">
+                  <h4 style="font-size: 0.88rem; color: var(--accent-teal); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;">
+                    Recommended Immediate Action Protocol:
+                  </h4>
+                  <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                    <li style="font-size: 0.88rem; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
+                      <span style="color: var(--accent-cyan); font-weight: bold;">✔</span> STAT 12-Lead Electrocardiogram (Target &lt; 8 minutes)
+                    </li>
+                    <li style="font-size: 0.88rem; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
+                      <span style="color: var(--accent-cyan); font-weight: bold;">✔</span> Cardiac biomarker panel (High-Sensitivity Troponin I, CK-MB)
+                    </li>
+                    <li style="font-size: 0.88rem; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
+                      <span style="color: var(--accent-cyan); font-weight: bold;">✔</span> High-flow nasal cannula supplemental O2 titrated to 94%
+                    </li>
+                  </ul>
+                </div>
+
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                  <button class="btn btn-primary btn-sm" onclick="autoAssignPatientToBed('Crushing retrosternal chest pain', 2, 104, '165/98', 92)">
+                    🏥 Assign to Recommended Bed (Resus / Acute Bay 02)
+                  </button>
+                  <button class="btn btn-secondary btn-sm" onclick="showToast('Electronic Medical Record packet transmitted to Attending Physician', 'success')">
+                    📡 Transmit to EHR Gateway
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 2: ED Bed Command Dashboard ================= -->
+        <div class="proto-tab-content" id="tab-beds">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 700;">Emergency Department Live Bed Grid</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary);">Real-time bed occupancy, telemetry alerts, and quick discharge controls</p>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm bed-filter-btn active" data-filter="all">All Bays (8)</button>
+              <button class="btn btn-secondary btn-sm bed-filter-btn" data-filter="critical">Critical / ESI-1/2</button>
+              <button class="btn btn-secondary btn-sm bed-filter-btn" data-filter="occupied">Occupied</button>
+              <button class="btn btn-secondary btn-sm bed-filter-btn" data-filter="available">Vacant & Sanitized</button>
+            </div>
+          </div>
+
+          <div class="ed-beds-grid" id="edBedsGrid">
+            <!-- Dynamically populated by assets/js/prototype.js -->
+          </div>
+        </div>
+
+        <!-- ================= TAB 3: Ambient Clinical SBAR Voice ================= -->
+        <div class="proto-tab-content" id="tab-ambient">
+          <div style="max-width: 850px; margin: 0 auto; text-align: center;">
+            <span class="status-badge" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">
+              AMBIENT CLINICAL ACOUSTIC SENSING
+            </span>
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin: 12px 0;">Passive Physician-Patient Voice-to-SBAR Generator</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">
+              Clinicians waste 35% of their emergency shift typing notes. CarePulse AI captures natural bedside patient dialogues and structures them into clinical SBAR format in real time.
+            </p>
+
+            <button class="btn btn-primary btn-lg" id="startAmbientBtn">
+              <span>🎙️ Simulate Ambient Physician-Patient Audio</span>
+            </button>
+
+            <!-- Audio Waveform Visualization Simulation -->
+            <div id="voiceWaveform" style="display: none; justify-content: center; align-items: center; gap: 6px; height: 50px; margin: 24px 0;">
+              <span style="width: 4px; height: 18px; background: var(--accent-cyan); border-radius: 2px; animation: pulse-ring 0.6s infinite ease-in-out;"></span>
+              <span style="width: 4px; height: 36px; background: var(--accent-cyan); border-radius: 2px; animation: pulse-ring 0.8s infinite ease-in-out;"></span>
+              <span style="width: 4px; height: 48px; background: var(--accent-teal); border-radius: 2px; animation: pulse-ring 0.5s infinite ease-in-out;"></span>
+              <span style="width: 4px; height: 26px; background: var(--accent-teal); border-radius: 2px; animation: pulse-ring 0.9s infinite ease-in-out;"></span>
+              <span style="width: 4px; height: 40px; background: var(--accent-cyan); border-radius: 2px; animation: pulse-ring 0.7s infinite ease-in-out;"></span>
+            </div>
+
+            <div id="ambientTranscript" style="background: #060913; border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 18px; text-align: left; min-height: 80px; margin: 24px 0;">
+              <em style="color: var(--text-muted); font-size: 0.9rem;">Click the button above to simulate a doctor examining a patient with acute gallbladder pain...</em>
+            </div>
+
+            <!-- Structured SBAR Output Note -->
+            <div id="sbarNoteContainer" style="display: none; background: #0a1122; border: 1px solid rgba(0, 242, 169, 0.3); border-radius: var(--radius-md); padding: 24px; text-align: left; margin-top: 24px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-teal); text-transform: uppercase;">
+                  Generated Clinical SBAR Documentation (FHIR Ready)
+                </span>
+                <button class="btn btn-secondary btn-sm" id="copyNoteBtn">📋 Copy Note</button>
+              </div>
+              <pre id="sbarNoteContent" style="white-space: pre-wrap; font-family: var(--font-mono); font-size: 0.86rem; color: #cbd5e1; line-height: 1.6;"></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 4: Surge Capacity Model ================= -->
+        <div class="proto-tab-content" id="tab-surge">
+          <div style="max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 28px;">
+              <span class="status-badge" style="background: rgba(255, 123, 0, 0.15); color: var(--esi-2);">
+                PREDICTIVE SURGE MANAGEMENT
+              </span>
+              <h3 style="font-size: 1.5rem; font-weight: 700; margin: 12px 0;">Community Surge & Epidemic Gridlock Forecast</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                Drag the influx slider to model how sudden patient surges impact hospital bed saturation and trigger automated diversion prevention workflows.
+              </p>
+            </div>
+
+            <div class="card" style="padding: 30px; margin-bottom: 28px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <label class="form-label" style="font-size: 1rem; margin-bottom: 0;">Simulated Patient Volume Surge:</label>
+                <span id="surgeDisplayVal" style="font-family: var(--font-mono); font-size: 1.2rem; font-weight: 800; color: var(--accent-cyan);">+0% Influx</span>
+              </div>
+              <input type="range" class="custom-range" id="surgeSlider" min="0" max="100" value="0">
+
+              <div style="margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px;">
+                  <span>Emergency Ward Bed Saturation</span>
+                  <span id="metricOccupancy" style="font-family: var(--font-mono); font-weight: bold; color: #fff;">65%</span>
+                </div>
+                <div style="width: 100%; height: 12px; background: #080d1a; border-radius: 6px; overflow: hidden;">
+                  <div id="occupancyBar" style="width: 65%; height: 100%; background: var(--accent-teal); transition: width 0.3s ease, background-color 0.3s ease;"></div>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;">
+                <div style="background: rgba(0,0,0,0.25); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+                  <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Forecasted Bedside Wait</div>
+                  <div id="metricWait" style="font-size: 1.5rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 4px;">18m</div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.25); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass);">
+                  <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Ambulance Diversion Status</div>
+                  <div id="metricDiversion" style="font-size: 1.1rem; font-weight: 800; color: var(--accent-teal); margin-top: 6px;">NORMAL</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="border-left: 4px solid var(--accent-teal);">
+              <h4 style="font-size: 1rem; color: #fff; margin-bottom: 8px;">CarePulse AI Automated Countermeasures Deployed:</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; color: var(--text-secondary);">
+                <li>✔ Early discharge identification: 3 stable patients flagged for discharge lounge</li>
+                <li>✔ FastTrack ambulatory clinic scaled to absorb ESI-4 and ESI-5 cases</li>
+                <li>✔ Mutual aid regional load-balancing notifications sent to nearby emergency centers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Hardware & Field Deployment Visual ================= -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-visual">
+          <div class="hero-visual-card">
+            <img src="assets/images/triage_simulation.jpg" alt="CarePulse AI Tablet Triage at Bedside" width="700" height="400">
+          </div>
+        </div>
+        <div>
+          <span class="section-tag">Clinical Ergonomics</span>
+          <h2 class="section-title">Designed for Harsh, High-Stress Clinical Reality</h2>
+          <p class="section-subtitle" style="margin-bottom: 24px;">
+            CarePulse AI runs on ruggedized bedside tablets, wall-mounted command center displays, and secure wearable wrist terminals for charge nurses.
+          </p>
+          <ul class="card-list" style="margin-bottom: 28px;">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> High-contrast dark mode prevents eye fatigue during 12-hour night shifts</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Glove-compatible oversized touch targets and voice dictation</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Offline-first resilient edge architecture continues working during hospital Wi-Fi drops</li>
+          </ul>
+          <a href="user-guide.html" class="btn btn-secondary">Review Clinician User Guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Global Footer ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-pulse-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div class="logo-text">CarePulse <span>AI</span></div>
+        </a>
+        <p>Pioneering precision clinical triage, predictive capacity management, and clinician burnout mitigation for modern healthcare enterprises.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About You</a></li>
+          <li><a href="prototype.html">App Prototype</a></li>
+          <li><a href="marketing.html">Marketing & ROI</a></li>
+          <li><a href="user-guide.html">User Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Prototype Modules</h4>
+        <ul class="footer-links">
+          <li><a href="#tab-triage">AI Triage Calculator</a></li>
+          <li><a href="#tab-beds">ED Bed Tracking Grid</a></li>
+          <li><a href="#tab-ambient">Ambient SBAR Voice</a></li>
+          <li><a href="#tab-surge">Surge Capacity Model</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Developer & Architect</h4>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+          Designed & Developed by <strong>Waqas Ali</strong><br>
+          Lead Biomedical Informatics & Systems Architect
+        </p>
+        <a href="marketing.html" class="btn btn-secondary btn-sm">Explore Marketing & Pricing</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CarePulse AI™ Systems. All rights reserved. Clinical prototype demonstration.</div>
+      <div>Designed for modern societal healthcare optimization.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/prototype.js"></script>
+  <script src="assets/js/three-scene.js"></script>
+</body>
+</html>
