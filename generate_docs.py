@@ -92,17 +92,18 @@ def create_document():
     sub_run.font.size = Pt(15)
     sub_run.font.color.rgb = RGBColor(71, 85, 105)
 
-    meta_tbl = doc.add_table(rows=4, cols=2)
-    meta_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
-    meta_tbl.autofit = False
-    
     meta_data = [
-        ("Lead Developer & Architect:", "Waqas Ali"),
+        ("Lead Developer & Architect:", "Demmar Williams"),
         ("Project Classification:", "Societal Healthcare Optimization & Clinical AI CDSS"),
-        ("Submission Deliverable:", "Final Working Web App Prototype & Comprehensive Documentation"),
-        ("Local Deployment Server:", "Active on http://localhost:8080/ (Port 8080)")
+        ("Official Live Vercel URL:", "https://carepulse-ai45.vercel.app/"),
+        ("GitHub Repository:", "https://github.com/waqas760000-source/CarePulse-AI"),
+        ("Local Development Server:", "http://localhost:8080/ (Active)")
     ]
     
+    meta_tbl = doc.add_table(rows=5, cols=2)
+    meta_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+    meta_tbl.autofit = False
+
     for idx, (label, val) in enumerate(meta_data):
         row = meta_tbl.rows[idx]
         c0, c1 = row.cells[0], row.cells[1]
@@ -136,22 +137,24 @@ def create_document():
 
     add_callout(
         doc,
-        "PRIMARY LIVE WEBSITE URL",
-        "The CarePulse AI prototype is hosted and actively running on the local server at:\n"
-        "👉 http://localhost:8080/\n\n"
-        "Direct File Protocol Fallback:\n"
-        "file:///c:/Users/Waqas%20Ali/Desktop/App/index.html\n\n"
-        "(All 5 required pages are accessible from the global navigation menu on every screen.)",
+        "PRIMARY LIVE PRODUCTION WEBSITE URL (VERCEL)",
+        "The CarePulse AI prototype is deployed and live for worldwide access at:\n"
+        "👉 https://carepulse-ai45.vercel.app/\n\n"
+        "GitHub Public Repository:\n"
+        "👉 https://github.com/waqas760000-source/CarePulse-AI\n\n"
+        "Local Development Server:\n"
+        "http://localhost:8080/\n\n"
+        "(All 5 required pages are accessible from the top navigation bar across all views.)",
         bg_color="ECFEFF",
         border_color="06B6D4"
     )
 
     p = doc.add_paragraph()
-    p.add_run("Complete Directory of Required Pages and Deep-Links:").bold = True
+    p.add_run("Complete Directory of Required Pages and Live Production Links:").bold = True
 
     url_table = doc.add_table(rows=6, cols=3)
     url_table.alignment = WD_TABLE_ALIGNMENT.CENTER
-    headers = ["Required Page Element", "Local Server URL (Port 8080)", "Direct File Path"]
+    headers = ["Required Page Element", "Live Vercel Production URL", "Local Server URL (Port 8080)"]
     
     for i, title in enumerate(headers):
         cell = url_table.cell(0, i)
@@ -164,11 +167,11 @@ def create_document():
         run.font.size = Pt(9)
 
     page_rows = [
-        ("Home page", "http://localhost:8080/index.html", "file:///c:/Users/Waqas%20Ali/Desktop/App/index.html"),
-        ("About You page", "http://localhost:8080/about.html", "file:///c:/Users/Waqas%20Ali/Desktop/App/about.html"),
-        ("Application prototype informational page", "http://localhost:8080/prototype.html", "file:///c:/Users/Waqas%20Ali/Desktop/App/prototype.html"),
-        ("Marketing page", "http://localhost:8080/marketing.html", "file:///c:/Users/Waqas%20Ali/Desktop/App/marketing.html"),
-        ("User Guide page", "http://localhost:8080/user-guide.html", "file:///c:/Users/Waqas%20Ali/Desktop/App/user-guide.html")
+        ("Home page", "https://carepulse-ai45.vercel.app/", "http://localhost:8080/index.html"),
+        ("About You page", "https://carepulse-ai45.vercel.app/about.html", "http://localhost:8080/about.html"),
+        ("Application prototype informational page", "https://carepulse-ai45.vercel.app/prototype.html", "http://localhost:8080/prototype.html"),
+        ("Marketing page", "https://carepulse-ai45.vercel.app/marketing.html", "http://localhost:8080/marketing.html"),
+        ("User Guide page", "https://carepulse-ai45.vercel.app/user-guide.html", "http://localhost:8080/user-guide.html")
     ]
 
     for row_idx, (name, srv_url, file_url) in enumerate(page_rows, start=1):
@@ -252,10 +255,10 @@ def create_document():
     p_h2 = doc.add_heading("Page 2: About You Page (about.html)", level=2)
     p_h2.style.font.color.rgb = RGBColor(2, 132, 199)
     doc.add_paragraph(
-        "The About You page presents the professional identity, engineering vision, and personal motivation of the creator, Waqas Ali."
+        "The About You page presents the professional identity, engineering vision, and personal motivation of the creator, Demmar Williams."
     )
     about_features = [
-        ("Author Profile & Credentials: ", "Features Waqas Ali as Lead Biomedical Informatics & Software Systems Architect, detailing domain specialization in clinical decision support systems (CDSS) and human-in-the-loop healthcare UI/UX."),
+        ("Author Profile & Credentials: ", "Features Demmar Williams as Lead Biomedical Informatics & Software Systems Architect, detailing domain specialization in clinical decision support systems (CDSS) and human-in-the-loop healthcare UI/UX."),
         ("Personal Catalyst & Motivation: ", "Shares the deeply human story of observing family members and fellow citizens suffer in chaotic hospital waiting rooms, inspiring the conviction that algorithmic engineering can directly save human lives."),
         ("Architectural Toolkit: ", "Comprehensive breakdown of core engineering proficiencies: Predictive AI modeling, HL7 FHIR v4.0 REST APIs, real-time reactive interface engineering, and HIPAA/AES-256 data security."),
         ("Ethical AI Principles: ", "Clear articulation of algorithmic explainability (no black-box scoring) and clinician sovereignty (100% clinician override capability)."),
@@ -389,7 +392,7 @@ def create_document():
     )
 
     # Save document
-    output_path = r"c:\Users\Waqas Ali\Desktop\App\CarePulse_AI_App_Submission.docx"
+    output_path = r"c:\Users\Demmar Williams\Desktop\App\CarePulse_AI_App_Submission.docx"
     doc.save(output_path)
     print(f"Document successfully created at: {output_path}")
 

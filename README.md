@@ -29,7 +29,7 @@ Overcrowded emergency departments cause avoidable diagnostic delays, patient fat
 The platform includes all 5 required pages:
 
 - **[Home Page](index.html)**: Interactive 3D hero stage, real-time emergency ticker, societal crisis breakdown, 4-step workflow, and core capability pillars.
-- **[About You Page](about.html)**: Founder & Architect profile for **Waqas Ali**, personal catalyst, technical competencies, and ethical AI pledge.
+- **[About You Page](about.html)**: Founder & Architect profile for **Demmar Williams**, personal catalyst, technical competencies, and ethical AI pledge.
 - **[Application Prototype Informational Page](prototype.html)**: Hands-on interactive clinical prototype with preset testing cases, live bed command grid, ambient voice simulation, and surge capacity models.
 - **[Marketing Page](marketing.html)**: Economic value proposition, interactive hospital ROI calculator, competitive matrix against Epic/Cerner, and transparent SaaS pricing tiers.
 - **[User Guide Page](user-guide.html)**: Role-based clinical standard operating procedures (SOP), interactive troubleshooting assistant, searchable FAQ, and HL7 FHIR REST API reference.
@@ -56,7 +56,7 @@ npx vercel --prod
 
 ## 👨‍💻 Author & Systems Architect
 
-**Waqas Ali**  
+**Demmar Williams**  
 *Lead Biomedical Informatics & Software Systems Architect*  
 GitHub: [@waqas760000-source](https://github.com/waqas760000-source)
 
