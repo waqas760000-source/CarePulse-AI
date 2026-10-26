@@ -392,7 +392,7 @@ def create_document():
     )
 
     # Save document
-    output_path = r"c:\Users\Demmar Williams\Desktop\App\CarePulse_AI_App_Submission.docx"
+    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CarePulse_AI_App_Submission.docx")
     doc.save(output_path)
     print(f"Document successfully created at: {output_path}")
 
